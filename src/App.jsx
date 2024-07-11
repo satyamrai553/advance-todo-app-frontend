@@ -1,27 +1,37 @@
 import axios from "axios"
+import Nav from "./assets/Nav"
 import { useEffect, useState } from "react"
+import Card from "./assets/Card";
 
 
 
 function App() {
- const [data,setData] = useState([]);
-
-useEffect(()=>{
-  axios.get(`${import.meta.env.VITE_API_URL}/read`)
+ const [data, setData] = useState([]);
+ useEffect(()=>{
+  axios.get('/api/v1/todo/read')
   .then((response) => {
-    console.log(response.data.data[0])
-    setData(response.data.data[0])
+    setData(response.data.data)
+    
   })
   .catch((error) => {
     console.log(error)
   })
-  
-},[])
+ },[setData])
+
+
+
 
   return (
-    <>
-    <h1 className="text-3xl font-bold underline">ToDo App</h1>
-    <div>{data.title}</div>
+    <><div className="w-screen h-screen bg-[#0B0C10]">
+     <Nav/>
+      <h1 className="text-6xl font-bold font-mono text-[#CADCFC] text-center mt-6">Todo App</h1>
+    
+        <div className="flex justify-center mt-10">{data.map((data)=>{
+          return <Card key={data._id} title={data.title} description={data.description}/>
+        })}</div>
+      
+    </div>
+    
     </>
   )
 }
