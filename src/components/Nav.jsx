@@ -4,7 +4,7 @@ function Nav() {
   return (
     <header >
         <div className='container mx-auto'>
-        <div className='flex justify-between'>
+        <div className='flex justify-between mx-20'>
             <div className='w=1/4'>
             <h1 className='text-4xl font-sans font-extrabold text-white p-4'>Logo</h1>
             </div>

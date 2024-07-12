@@ -1,7 +1,7 @@
 import axios from "axios"
-import Nav from "./assets/Nav"
+import Nav from "./components/Nav"
 import { useEffect, useState } from "react"
-import Card from "./assets/Card";
+import Card from "./components/Card";
 import { CirclePlus } from 'lucide-react'; 
 import InputBox from "./components/InputBox";
 
@@ -19,13 +19,13 @@ function App() {
   .catch((error) => {
     console.log(error)
   })
- },[setData])
+ },[data])
 
 
 
 
   return (
-    <><div className="w-screen h-screen bg-[#0B0C10]">
+    <><div className="overflow: 'hidden', width: '100vw', height: '100vh' bg-[#0B0C10]">
      <Nav/>
      <div className="flex justify-center relative">
      <h1 className="text-6xl font-bold font-mono text-[#CADCFC] text-center mt-6">Todo App</h1>
@@ -33,7 +33,8 @@ function App() {
      </div>
       
     
-        <div className="flex justify-center mt-10">{data.map((data)=>{
+        <div className="mx-auto grid grid-cols-3 mt-10 justify-items-center">{data.map((data)=>{
+          
           return <Card key={data._id} title={data.title} description={data.description}/>
         })}</div>
 
