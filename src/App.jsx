@@ -1,47 +1,37 @@
-import axios from "axios"
 import Nav from "./components/Nav"
-import { useEffect, useState } from "react"
 import Card from "./components/Card";
-import { CirclePlus } from 'lucide-react'; 
+import { CirclePlus } from 'lucide-react';
 import InputBox from "./components/InputBox";
+import { useEffect, useState } from "react"
+
 
 
 
 function App() {
- const [data, setData] = useState([]);
- const[showModal, setShowModal] = useState(false);
- useEffect(()=>{
-  axios.get('/api/v1/todo/read')
-  .then((response) => {
-    setData(response.data.data)
-    
-  })
-  .catch((error) => {
-    console.log(error)
-  })
- },[data])
-
-
+  const [showModal, setShowModal] = useState(false);
 
 
   return (
-    <><div className="overflow: 'hidden', width: '100vw', height: '100vh' bg-[#0B0C10]">
-     <Nav/>
-     <div className="flex justify-center relative">
-     <h1 className="text-6xl font-bold font-mono text-[#CADCFC] text-center mt-6">Todo App</h1>
-     <button onClick={()=>setShowModal(true)} className="absolute top-12 right-52"><CirclePlus size={36} color="#ffffff" /></button>
-     </div>
-      
-    
-        <div className="mx-auto grid grid-cols-3 mt-10 justify-items-center">{data.map((data)=>{
-          
-          return <Card key={data._id} title={data.title} description={data.description}/>
-        })}</div>
+    <><div className="overflow: 'hidden', width: '100vw', h-screen bg-[#0B0C10]">
 
-      {showModal && <InputBox onClose={() => setShowModal(false)}/>}
-      
+      <Nav />
+
+      <div className="flex justify-center relative">
+        <h1 className="text-6xl font-bold font-mono text-[#CADCFC] text-center mt-6">Todo App</h1>
+        <button onClick={() => setShowModal(true)} className="absolute top-12 right-52"><CirclePlus size={36} color="#ffffff" /></button>
+      </div>
+
+
+      <div className="mx-auto grid grid-cols-3 mt-10 justify-items-center">
+        <Card />
+      </div>
+
+
+
+      {showModal && <InputBox onClose={() => setShowModal(false)} />}
+
     </div>
-    
+
     </>
   )
 }

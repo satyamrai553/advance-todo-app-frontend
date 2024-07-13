@@ -11,6 +11,11 @@ function InputBox({onClose}) {
     const [description,setDescription] = useState("");
 
 
+    function refreshPage(){ 
+      window.location.reload(); 
+  }
+
+
     
 const addtodoHandler = async ()=>{
     
@@ -19,6 +24,8 @@ const addtodoHandler = async ()=>{
       setTitle("")
       setDescription("")
       onClose();
+      refreshPage();
+      
     
     } catch (error) {
       console.error("Error occurred:", error);
