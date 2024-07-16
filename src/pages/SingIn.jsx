@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from "react-router-dom"
 
-function SingUp() {
+function SingIn() {
   return (
     <>
     <div className=' overflow-hidden bg-[#111827] h-screen  flex items-center justify-center px-6 py-12'>
@@ -54,4 +54,4 @@ function SingUp() {
   )
 }
 
-export default SingUp
+export default SingIn

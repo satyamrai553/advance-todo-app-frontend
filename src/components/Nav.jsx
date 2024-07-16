@@ -38,9 +38,9 @@ function Nav() {
             </NavLink>
           </div>
           <div className='w-1/4 flex justify-center items-center'>
-            <Link to='/signup'>
-            <button className='text-white bg-blue-400 rounded-xl p-2 text-lg font-medium'>
-              Login/SignUp
+            <Link to='/signin'>
+            <button className='text-white bg-blue-600 rounded-xl p-2 text-lg font-medium w-[84px]'>
+              Sign in
             </button>
             </Link>
           </div>

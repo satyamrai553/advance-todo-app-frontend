@@ -6,7 +6,7 @@ import Layout  from './Layout.jsx'
 import Home from './pages/Home.jsx'
 import About from './pages/About.jsx'
 import Contact from './pages/Contact.jsx'
-import SingUp from './pages/SingUp.jsx'
+import SingIn from './pages/SingIn.jsx'
 
 const router = createBrowserRouter([
   {
@@ -29,8 +29,8 @@ const router = createBrowserRouter([
     ]
   },
   {
-    path:"/signup",
-    element:<SingUp/>
+    path:"/signin",
+    element:<SingIn/>
   }
 ])
 
